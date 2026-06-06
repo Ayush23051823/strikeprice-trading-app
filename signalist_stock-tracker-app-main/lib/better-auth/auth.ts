@@ -11,19 +11,16 @@ export const getAuth = async () => {
   const mongoose = await connectToDatabase();
   const db = mongoose.connection.db;
 
-  if (!db) {
-    throw new Error("MongoDB connection not found");
-  }
+  if (!db) throw new Error("MongoDB connection not found");
 
   authInstance = betterAuth({
+    secret: process.env.BETTER_AUTH_SECRET!,
+    baseURL: process.env.BETTER_AUTH_URL || "https://strikeprice-trading-app.vercel.app",
+    trustedOrigins: [
+      process.env.BETTER_AUTH_URL || "https://strikeprice-trading-app.vercel.app",
+      "http://localhost:3000",
+    ],
     database: mongodbAdapter(db as any),
-
-    secret: process.env.BETTER_AUTH_SECRET,
-
-    baseURL:
-      process.env.BETTER_AUTH_URL ||
-      "https://strikeprice-trading-app.vercel.app",
-
     emailAndPassword: {
       enabled: true,
       disableSignUp: false,
@@ -32,7 +29,6 @@ export const getAuth = async () => {
       maxPasswordLength: 128,
       autoSignIn: true,
     },
-
     plugins: [nextCookies()],
   });
 
@@ -45,17 +41,14 @@ export const auth = {
       const instance = await getAuth();
       return instance.api.getSession(...args);
     },
-
     signUpEmail: async (...args: any[]) => {
       const instance = await getAuth();
       return instance.api.signUpEmail(...args);
     },
-
     signInEmail: async (...args: any[]) => {
       const instance = await getAuth();
       return instance.api.signInEmail(...args);
     },
-
     signOut: async (...args: any[]) => {
       const instance = await getAuth();
       return instance.api.signOut(...args);
