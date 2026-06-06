@@ -11,7 +11,9 @@ export const getAuth = async () => {
   const mongoose = await connectToDatabase();
   const db = mongoose.connection.db;
 
-  if (!db) throw new Error("MongoDB connection not found");
+  if (!db) {
+    throw new Error("MongoDB connection not found");
+  }
 
   authInstance = betterAuth({
     database: mongodbAdapter(db as any),
@@ -37,4 +39,5 @@ export const getAuth = async () => {
   return authInstance;
 };
 
-export const auth = await getAuth();
+// NO TOP-LEVEL AWAIT
+export const authPromise = getAuth();
