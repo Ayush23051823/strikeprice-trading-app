@@ -1,5 +1,5 @@
 import Header from "@/components/Header";
-import { authPromise } from "@/lib/better-auth/auth";
+import { auth } from "@/lib/better-auth/auth";
 import {headers} from "next/headers";
 import {redirect} from "next/navigation";
 

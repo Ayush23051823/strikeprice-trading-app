@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { authPromise } from "@/lib/better-auth/auth";
+import { auth } from "@/lib/better-auth/auth";
 import {headers} from "next/headers";
 import {redirect} from "next/navigation";
 
