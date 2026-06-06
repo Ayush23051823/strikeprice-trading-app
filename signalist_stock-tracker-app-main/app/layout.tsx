@@ -17,6 +17,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "StrikePrice",
   description: "Real-time stock market data, alerts and company insights.",
+   icons: {
+    icon: "/assets/icons/logo.svg",
+  },
 };
 
 export default function RootLayout({
