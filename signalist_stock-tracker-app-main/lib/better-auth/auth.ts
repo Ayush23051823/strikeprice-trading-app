@@ -39,5 +39,4 @@ export const getAuth = async () => {
   return authInstance;
 };
 
-// NO TOP-LEVEL AWAIT
-export const authPromise = getAuth();
+export const auth = await getAuth();

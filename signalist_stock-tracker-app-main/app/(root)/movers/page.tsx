@@ -1,4 +1,4 @@
-import { auth } from '@/lib/better-auth/auth';
+import { authPromise } from "@/lib/better-auth/auth";
 import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { getTopMovers } from '@/lib/actions/movers.actions';

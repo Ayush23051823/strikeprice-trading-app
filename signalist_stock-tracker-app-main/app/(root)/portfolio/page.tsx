@@ -1,4 +1,4 @@
-import { auth } from '@/lib/better-auth/auth';
+import { authPromise } from "@/lib/better-auth/auth";
 import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { getPortfolioByEmail } from '@/lib/actions/portfolio.actions';
