@@ -6,6 +6,8 @@ export const NAV_ITEMS = [
     { href: '/portfolio', label: 'Portfolio' },
     { href: '/compare', label: 'Compare' },
     { href: '/movers', label: 'Movers' },
+    { href: '/sip', label: 'SIP' },
+    { href: '/chatbot', label: 'AI Advisor' },
     { href: '/digest', label: 'AI Digest' },
 ];
 
