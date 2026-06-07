@@ -55,12 +55,13 @@ declare global {
         href: string;
     };
 
-    type SearchCommandProps = {
-        renderAs?: 'button' | 'text';
+  interface SearchCommandProps {
+        renderAs?: 'button' | 'text' | 'controlled';
         label?: string;
         initialStocks: StockWithWatchlistStatus[];
-    };
-
+        open?: boolean;
+        onOpenChange?: (open: boolean) => void;
+   }
     type WelcomeEmailData = {
         email: string;
         name: string;
